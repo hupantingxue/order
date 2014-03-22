@@ -1,0 +1,53 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="../css/newcus.css">
+<script type="text/javascript" src="../js/customer.js"></script>
+</head>
+<body>
+    <div id='navigator'>
+		<div id='logo_img'><img src='../img/home.jpg'/></div>
+		<div id='admin'><span><a href='/login/admin'>管理员</a></span></div>
+		<ul id='menu'>
+			<li>首页</li>
+			<li id="check_phone" class='active'>开始订餐</li>
+			<li id='about'>订餐须知</li>
+			<li id='contact'>联系我们</li>
+		</ul>
+	</div>
+	<div style='margin:0 auto;background-color:gray;width:960px;'>
+	<div id='dinner_time'>
+		<span>电话订餐 18607249516</span>
+		<span>    午餐 11:30-13:30</span>
+		<span>    晚餐 17:30-19:30</span>
+	</div>
+	</div>
+
+
+    <div class='main_frame'>
+	<h2>欢迎您首次网上订餐，请填写以下信息：</h2>
+	<div >
+	<form name='form1' id='form1' action='' method='post'>
+		<p class='p_label' id='p_label_1'>
+			<div>
+			<label>联系电话:</label>
+			<input name='phone' type='text' value='{{phone}}'/>
+			</div>
+		</p>
+		<p class='p_label'>
+			<label>顾客姓名:</label>
+			<input id='in_3' onfocus="focusHide('in_3')" onblur="blurShow('in_3')" name='name' placeholder='请输入'>
+			<input type='radio' value='male' name='sex' checked='true'><span>男</span><input type='radio' value='female' name='sex'><span>女</span>
+		</p>
+		<p class='p_label'>
+			<label>送餐地址:</label>
+			<!--<input id='in_4' onfocus="focusHide('in_4')" onblur="blurShow('in_4')" value="请输入">-->
+			<textarea name='address'></textarea><span>（深圳范围以内）</span>
+		</p>
+			<input type='submit' class='enter_menu' value='进入菜单'/>
+		</form>
+	</div>
+</div>
+
+</body>
+</html>

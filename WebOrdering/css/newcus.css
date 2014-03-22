@@ -1,0 +1,160 @@
+body{
+	margin-top:0;
+}
+
+#navigator{
+	margin:0 auto;
+	width:960px;
+	height:100px;
+	background-color:#f37022;
+}
+#logo_img{
+	float:left;
+	width:200px;
+	height:100%;
+}
+
+#admin span{
+	float:left;
+	width:100px;
+	height:20px;
+	margin-top:10px;
+	margin-left:600px;
+	font-size:20;
+	font-family:微软雅黑;
+}
+#logo_img img{
+	width:100%;
+	height:100%;
+}
+#menu{
+	margin-left:200px;
+}
+#menu li{
+	float:left;
+	width:150px;
+	text-align:center;
+	margin-top:20px;
+	font-family:'微软雅黑';
+	font-size:20px;
+	text-align:center;
+	color:black;
+}
+
+#menu .active{
+	font-size:25px;
+	color:white;
+}
+#menu li:hover{
+	cursor:pointer;
+	color:#ffffff;
+	font-size:25px;
+}
+
+#dinner_time{
+	margin:0 auto;
+	width:600px;
+	height:40px;
+}
+
+#dinner_time span{
+	color:white;
+	float:left;
+	padding-top:10px;
+	width:200px;
+	height:100%
+}
+
+.main_frame{
+	position: absolute;
+	top: 22%;
+	left:14.5%;
+	width: 970px;
+	height: 480px;
+	bottom: 20px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000000;
+	
+
+}
+
+.main_frame h2{
+	position: absolute;
+	top: 8%;
+	left:5%;
+}
+
+.p_label{
+	margin-top: 100px;
+}
+
+/*the last few button*/
+.enter_menu{
+	position: absolute;
+	right: 10%;
+	bottom: 2%;
+	/*float: right;*/
+	/*margin-right: 100px;*/
+	margin-bottom: 50px;
+	text-align: center;
+	font-size: 30px;
+	color: yellow;
+	width:200px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 2px;
+	background-color: gray;
+	cursor: pointer;
+}
+#p_label_1{
+	display: inline-block;
+	width: 400px;
+}
+
+label{
+	position: relative;	
+	text-align: right;
+	margin-left: 100px;
+	font-size: 20px;
+
+}
+
+th{
+	border-right-color: #fff;
+}
+
+.table_1{
+	display: inline-block;
+	vertical-align: bottom;
+	text-align: left;
+}
+
+#in_1{
+
+}	
+
+#in_3{
+	color: gray;
+}
+
+#in_4{
+	width: 300px;
+	color: gray;
+}
+
+#span_1{
+	visibility: collapse;
+}
+
+#in_5{
+	color: gray;
+	visibility: collapse;
+}
+
+#btn_1{
+	visibility: collapse;
+}
+
+#table1{
+}

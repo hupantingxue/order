@@ -1,0 +1,78 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/oldcus.css">
+	<script type="text/javascript" src='../js/customer.js'></script>
+</head>
+
+<body>
+	<div id='navigator'>
+		<div id='logo_img'><img src='img/home.jpg'/></div>
+		<div id='admin'><span><a href='/login/admin'>管理员</a></span></div>
+		<ul id='menu'>
+			<li id='home'>首页</li>
+			<li id="check_phone" class='active'>开始订餐</li>
+			<li id='about'>订餐须知</li>
+			<li id='contact'>联系我们</li>
+		</ul>
+	</div>
+	<div style='margin:0 auto;background-color:gray;width:960px;'>
+	<div id='dinner_time'>
+		<span>电话订餐 18607249516</span>
+		<span>    午餐 11:30-13:30</span>
+		<span>    晚餐 17:30-19:30</span>
+	</div>
+	</div>
+	<div class='main_frame'>
+		<h2>*先生，欢迎再次光！</h2>
+		<div>
+			<p class='p_label' id='p_label_1'>
+				<div>
+				<label>联系电话:</label>
+				<table  id="table_1">
+					<tr>
+						<th class='uprow'>类型</th>
+						<th class='uprow'>电话号码</th>
+						<th class='uprow'>选择</th>
+						<th class='uprow'>删除</th>
+					</tr>
+					<tr>
+						<th>手机</th>
+						<th>************</th>
+						<th><form id="tel"><input id="in_1" type="radio" onclick="chooseCollapse()"></form></th>
+						<th>待添加</th>
+					</tr>
+				</table>
+				<button onclick='phoneShow_old()'>新增</button>
+				<span id="span_1">手机号：</span>
+				<input id="in_5" onfocus="focusHide('in_5')" onblur="blurShow('in_5')" value="请输入">
+				<button id="btn_1" type="button" >添加</button>
+				</div>
+			</p>
+			<!-- <p class='p_label'> -->
+			<p class='p_label' id='p_label_2'>
+				<div>
+				<label>送餐地址:</label>
+				<table  table="table_2"> 
+					<tr>
+						<th class='uprow'>区域</th>
+						<th class='uprow'>地址</th>
+						<th class='uprow'>选择</th>
+						<th class='uprow'>删除</th>
+					</tr>
+					<tr></tr>
+						<th></th>
+						<th></th>
+						<th><input id="in_7" type="radio" onclick="chooseCollapse_2()"></th>
+						<th></th>
+				</table>
+				<button onclick='phoneShow_old_2()' >新增</button>
+				<span id="span_2">手机号：</span>
+				<input id="in_6" form="tel" onfocus="focusHide('in_6')" onblur="blurShow('in_6')" value="请输入">
+				<button id="btn_2" type="button" >添加</button>
+				</div>
+			</p>
+		</div>
+		<img class='enter_menu'  src='../img/nextstep.png' onclick="home()">
+	</div>
+</body>
+</html>
