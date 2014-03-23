@@ -1,0 +1,248 @@
+<html>
+
+<head>
+	<title>管理菜谱</title>
+	<style>
+		body{
+			margin:0;
+		}
+		#navigator{
+			width:100%;
+			height:30px;
+			background-color:#545652;
+		}
+		.nav-item{
+			float:left;
+			list-style:none;
+			padding-top:6px;
+			height:24px;
+			width:100px;
+			text-align:center;
+		}
+		a{
+			color:white;
+			text-decoration:none;
+		}
+		#all{
+			margin:0 auto;
+			width:960;
+		}
+		#add-food{
+			margin-left:150px;
+			margin-top:50px;
+			//margin:0 auto;
+		}
+		.active-item{
+			background-color:#83bf73;
+		}
+		#food-list{
+			margin:0 auto;
+			//background-color:#ccc;
+			margin-top:20px;
+			width:960px;
+		}
+		.food{
+			height:220px;
+		}
+		img{
+			width:100%;
+			height:100%;
+		}
+		.food-img{
+			width:200px;
+			height:200px;
+			float:left;
+		}
+		.food-detail table{
+			padding-left:20;
+			padding-top:20px;
+		}
+		input[type='text']{
+			width:400px;
+		}
+		input[type='submit']{
+			 display: inline-block;
+			  vertical-align: top;
+			  position: relative;
+			  overflow: hidden;
+			  //line-height: 80px;
+			  padding: 0 0px;
+			  font-size: 20px;
+			  color: white;
+			  text-align: center;
+			  text-decoration: none;
+			  text-shadow: 0 1px #154c86;
+			  background-color: #3a6ea5;
+			  background-clip: padding-box;
+			  border: 1px solid;
+			  border-color: #1c65b2 #18589c #18589c;
+			  border-radius: 4px;
+			  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+			  box-shadow: inset 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+			  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+			  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+			  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+			  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+			  font-family: 微软雅黑;
+			  width:100px;
+			  margin-left:350;
+		}
+		input[type='submit']:hover {
+		  background-color: #1a74d3;
+		}
+		textarea{
+			width:400px;
+		}
+	</style>
+</head>
+<body>
+<script src='../../js/jquery.min.js'></script>
+<script>
+$(function(){
+	$('#update-food').hide();
+	$('#food-list').show();
+	$('#admin-manage').show();
+	
+	$('.nav-item').click(function(){
+		$('.nav-item').removeClass('active-item')
+		$(this).addClass('active-item')
+		if($(this).text()=='添加新食物'){
+			$('#update-food').show();
+			$('#food-list').hide();
+			$('#admin-manage').hide();
+		}else if($(this).text()=='已有食物'){
+			$('#update-food').hide();
+			$('#admin-manage').hide();
+			$('#food-list').show();
+		}else if($(this).text().substr(0,3)=='管理员'){
+			$('#update-food').hide();
+			$('#admin-manage').show();
+			$('#food-list').hide();
+		}
+	})
+	
+	$('#form1').submit(function(){
+		var foodname=$('input[name="foodname"]').val()
+		var foodprice=$('input[name="foodprice"]').val()
+		var foodimage=$('input[type="file"]').val();
+		if(foodname==''){
+			alert('请输入食物名称');
+			return false;
+		}
+		if(foodprice==''){
+			alert('请输入食物价格');
+			return false;
+			if(isNaN(foodprice)){
+				alert('请输入有效食物价格');
+				return false;
+			}
+		}
+		if(foodimage==''){
+			alert('请上传食物图片')
+			return false;
+		}
+	})
+})
+</script>
+<div id='navigator'>
+<ul>
+	<li class='nav-item'><a href='/'>返回</a></li>
+	<li class='nav-item active-item'><a href='#'>已有食物</a></li>
+	<li class='nav-item'><a href='#'>添加新食物</a></li>
+	<li class='nav-item' style='float:right'><a href='#'>管理员：{{admin_name}}</a></li>
+</ul>
+</div>
+
+<div id='all'>
+	<div id='food-list'>
+	{%for category,url,name,foodprice,introduce in foods%}
+		<div class='food'>
+		<div class='food-img'>
+			<img src='../../{{url}}'>
+		</div>
+		<div class='food-detail'>
+			<table>
+				<tr>
+					<td>食物名称</td>
+					<td>{{name}}</td>
+				</tr>
+				<tr>
+					<td>食物类别</td>
+					<td class='category'>{{category}}</td>
+				</tr>
+				<tr>
+					<td>食物价格</td>
+					<td>{{foodprice}}</td>
+				</tr>
+				<tr>
+					<td>食物描述</td>
+					<td>{{introduce}}</td>
+				</tr>
+			</table>
+		</div>
+		</div>
+		{%endfor%}
+		<script>
+			$(function(){
+				var categories = $('.category')
+				var len = categories.length
+				for(var i = 0; i < len; i++){
+					var category=categories[i];
+					if(category.innerHTML=='taocan'){
+						category.innerHTML='超值套餐'
+					}
+					if(category.innerHTML=='gaifan'){
+						category.innerHTML='经典盖饭'
+					}
+					if(category.innerHTML=='dianxin'){
+						category.innerHTML='小吃点心'
+					}
+					if(category.innerHTML=='yinpin'){
+						category.innerHTML='饮品'
+					}
+				}
+			})
+		</script>
+	</div>
+	<div id='update-food'>
+		<form id='form1' method='post' enctype="multipart/form-data">
+			{% csrf_token %} 
+			<table id='add-food'>
+			<tr>
+				<td>食物类别</td>
+				<td>
+					<select name='category'>
+						<option value='taocan'>超值套餐</option>
+						<option value='gaifan'>经典盖饭</option>
+						<option value='dianxin'>小吃点心</option>
+						<option value='yinpin'>饮品</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>食物名称</td>
+				<td><input name='foodname' type='text' /></td>
+			</tr>
+			<tr>
+				<td>食物价格</td>
+				<td><input type='text' name='foodprice'/></td>
+			</tr>
+			<tr>
+				<td>食物图片</td>
+				<td><input type='file' value='upload' name='pic'/></td>
+			</tr>
+			<tr>
+				<td>食物描述</td>
+				<td><textarea rows=10 name='introduce'></textarea></td>
+			</tr>
+			</table>
+			<input type='submit' value='提交'/>
+		</form>
+	</div>
+	<div id='admin-manage'>
+		管理员管理
+	</div>
+</div>
+</body>
+
+</html>
