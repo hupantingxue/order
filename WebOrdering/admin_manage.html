@@ -52,11 +52,13 @@
 		{
 		    $('#order').show();
 		    $('#foodlist').hide();
+		    $('#foodupd').hide();
 		}
 
 		function orderMgt()
 		{
-		    $('#foodlist').show();
+		    $('#foodupd').show();
+		    $('#foodlist').hide();
 		    $('#order').hide();
 		}
 
@@ -239,6 +241,7 @@ a:link,a:visited {
 $(function(){
     $('#order').show();
 	$('#foodlist').hide();
+	$('#foodupd').hide();
 
 	$('#update-food').hide();
 	$('#food-list').show();
@@ -472,7 +475,7 @@ explain  -->
 </div>
 <!-- end: foodlist -->
 
-<div id='update-food'  style="width: 80%;float:left;margin-left: -2em;">
+<div id='foodupd'  style="width: 80%;float:left;margin-left: -2em;">
 	<form id='form1' method='post' enctype="multipart/form-data">
 		{% csrf_token %}
 		<table id='add-food'>
