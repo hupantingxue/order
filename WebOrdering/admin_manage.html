@@ -336,7 +336,7 @@ explain  -->
             </li>
             <li>
               <div class='items'>
-			    <div onClick='orderMgt()'><a href='#' target='main'>订单管理</a></div>
+			    <div class='fllct' onClick='orderMgt()'><a href='#' target='main'>订单管理</a></div>
 			  </div>
 			</li>            
           </ul>
@@ -419,7 +419,7 @@ explain  -->
 </form>
 </div>
 
- <div id='foodlist'>
+ <div id='foodlist'  style="width: 80%;float:left;margin-left: -2em;">
     {%for category,url,name,foodprice,introduce in foods%}
     <div class='food'>
         <div class='food-img'>
