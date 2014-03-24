@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>website manage system</title>
-	<link href="../../skin/css/base.css" rel="stylesheet" type="text/css">
+	<link href="../../skin/css/base.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="../../skin/css/menu.css" type="text/css" />
 	<script language='javascript'>
 		var preFrameW = '206,*';
@@ -311,11 +311,93 @@ explain  -->
   </tr>
 </tbody>
 </table>
+
+<!-- left -->
+<div id='left' style='float:left'>
+<table width='99%' height="100%" border='0' cellspacing='0' cellpadding='0'>
+  <tr>
+    <td style='padding-left:3px;padding-top:8px' valign="top">
+	    <!-- Item 1 Strat -->
+      <dl class='bitem'>
+        <dt onClick='showHide("items1_1")'><b>订单管理</b></dt>
+        <dd style='display:block' class='sitem' id='items1_1'>
+          <ul class='sitemu'>
+            <li>
+              <div class='items'>
+                <div class='fllct'><a href='archives.html' target='main'>订单查询</a></div>                
+              </div>
+            </li>
+            <li><a href='archives.html' target='main'>订单管理</a> </li>            
+          </ul>
+        </dd>
+      </dl>
+      <!-- Item 1 End -->
+      <!-- Item 2 Strat -->
+      <dl class='bitem'>
+        <dt onClick='showHide("items2_1")'><b>商品管理</b></dt>
+        <dd style='display:block' class='sitem' id='items2_1'>
+          <ul class='sitemu'>
+            <li><a href='#' target='_blank'>商品分类</a></li>
+            <li><a href='#' target='_blank'>商品配置</a></li>
+          </ul>
+        </dd>
+      </dl>
+      <!-- Item 2 End -->
+      <!-- Item 3 Strat -->
+      <dl class='bitem'>
+      	<dt onClick='showHide("items3_1")'><b>会员管理</b></dt>
+      	<dd style='display:block' class='sitem' id='items3_1'>
+          <ul class='sitemu'>
+            <li><a href='#' target='_blank'>西岭软件</a></li>            
+          </ul>
+        </dd>
+      </dl>	
+      <!-- Item 3 End -->
+      <!-- Item 4 Strat -->
+      <dl class='bitem'>
+      	<dt onClick='showHide("items4_1")'><b>公众号管理</b></dt>
+      	<dd style='display:block' class='sitem' id='items4_1'>
+          <ul class='sitemu'>
+            <li><a href='#' target='_blank'>西岭软件</a></li>            
+          </ul>
+        </dd>
+      </dl>	
+      <!-- Item 4 End -->
+	  </td>
+  </tr>
+</table>
+</div>
+<!-- left -->
+
+<!-- center -->
+<!-- 内容列表 -->
+<div id='center' style='float:left'>
+<form name="form2">
+<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
+<tr bgcolor="#E7E7E7">
+	<td height="24" colspan="10" background="skin/images/tbg.gif">&nbsp;文档列表&nbsp;</td>
+</tr>
+<tr align="center" bgcolor="#FAFAF1" height="22">
+	<td width="6%">订单号</td>
+	<td width="4%">订单总价</td>
+	<td width="18%">联系人</td>
+	<td width="10%">电话号码</td>
+	<td width="20%">地址</td>
+	<td width="8%">订单创建时间</td>
+	<td width="6%">预定时间</td>
+	<td width="8%">订单状态</td>
+	<td width="8%">备注</td>
+	<td width="10%">操作</td>
+</tr>
+</table>
+</form>
+</div>
+
 <frameset rows="60,*" cols="*" frameborder="no" border="0" framespacing="0">
   <frame src="top.html" name="topFrame" scrolling="no">
   <frameset cols="180,*" name="btFrame" frameborder="NO" border="0" framespacing="0">
-    <frame src="menu.html" noresize name="menu" scrolling="yes">
-    <frame src="archives.html" noresize name="main" scrolling="yes">
+    <frame src="../../menu.html" noresize name="menu" scrolling="yes">
+    <frame src="../../archives.html" noresize name="main" scrolling="yes">
   </frameset>
 </frameset>
 <noframes>
