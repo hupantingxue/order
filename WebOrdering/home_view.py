@@ -51,3 +51,10 @@ def get_food_list():
     for foodid,foodname,foodimage,foodprice,category,introduce in cur.execute('select * from menu'):
         yield (category,foodimage,foodname,foodprice,introduce)
     db.close()
+
+def get_order_list():
+    db=sqlite3.connect('WebOrdering/myorder.db')
+    cur=db.cursor()
+    for order_id, order_price, contact, phone, address, create_time, order_time, status, comment, oper in cur.execute('select order_id, order_price, contact, phone, address, creat_time, order_time, status, comment, oper from myorder'):
+        yield (order_id, order_price, contact, phone, address, create_time, order_time, status, comment, oper)
+    db.close()

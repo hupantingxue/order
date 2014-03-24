@@ -8,7 +8,7 @@ import os
 import time
 import threading
 
-from home_view import get_food_list
+from home_view import get_food_list, get_order_list
 
 class MySession:
     def __init__(self):
@@ -111,8 +111,7 @@ def admin_manage(request,username):
             fp.close()
             return HttpResponseRedirect('/admin/'+username)
     text=open('WebOrdering/admin_manage.html').read()
-    return HttpResponse(Template(text).render(Context({'admin_name':username,'foods':get_food_list()})))
-
+    return HttpResponse(Template(text).render(Context({'admin_name':username, 'orders':get_order_list(), 'foods':get_food_list()})))
 
 def get_extension(name):
     name=str(name)

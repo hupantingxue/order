@@ -51,6 +51,23 @@ CREATE TABLE admin(
 ''')
 conn.close()
 
+conn = sqlite3.connect('myorder.db')
+curs = conn.cursor()
+curs.execute('''
+CREATE TABLE [myorder](
+  order_id    INTEGER PRIMARY KEY,
+  order_price FLOAT,
+  contact     varchar(100),
+  address     varchar(200),
+  creat_time  INTEGER,
+  order_time  INTEGER,
+  status      INTEGER,
+  comment     varchar(200),
+  oper        INTEGER
+  )
+''')
+query='INSERT INTO [myorder] VALUES (?,?,?,?,?,?,?,?,?)'
+
 print 'table struct in user.db'
 conn=sqlite3.connect('user.db')
 for i in conn.iterdump():print i
@@ -65,6 +82,10 @@ for i in conn.iterdump():print i
 
 print '\ntable struct in admin.db'
 conn=sqlite3.connect('admin.db')
+for i in conn.iterdump():print i
+
+print '\ntable struct in myorder.db'
+conn=sqlite3.connect('myorder.db')
 for i in conn.iterdump():print i
 
 conn.close()

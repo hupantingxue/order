@@ -287,7 +287,7 @@ explain  -->
     	<table width="750" border="0" cellspacing="0" cellpadding="0">
       <tbody><tr>
       <td align="right" height="26" style="padding-right:10px;line-height:26px;">
-        	您好：<span class="username">&lt;%= request.cookies(cookies_admin)("username") %&gt;</span>，欢迎使用后台管理系统！        	
+        	您好：<span class="username"><b>{{admin_name}}</b></span>，欢迎使用后台管理系统！        	
         	[<a href="" target="_blank">修改密码</a>]
         	[<a href="exit" target="_top">注销退出</a>]&nbsp;
       </td>
@@ -371,7 +371,7 @@ explain  -->
 
 <!-- center -->
 <!-- 内容列表 -->
-<div id='center' style="width: 80%;float:left;margin-left: -2em;">
+<div id='order' style="width: 80%;float:left;margin-left: -2em;">
 <form name="form2">
 <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
@@ -389,6 +389,21 @@ explain  -->
 	<td width="8%">备注</td>
 	<td width="10%">操作</td>
 </tr>
+<!-- order item list -->
+{%for order_id, order_price, contact, phone, address, create_time, order_time, status, comment, oper in orders%}
+    <tr align="center" bgcolor="#FAFAF1" height="22">
+	<td width="6%">{{order_id}}</td>
+	<td width="4%">{{orer_price}}</td>
+	<td width="18%">{{contact}}</td>
+	<td width="10%">{{phone}}</td>
+	<td width="20%">{{address}}</td>
+	<td width="8%">{{create_time}}</td>
+	<td width="6%">{{order_time}}</td>
+	<td width="8%">{{status}}</td>
+	<td width="8%">{{comment}}</td>
+	<td width="10%">{{oper}}</td>
+    </tr>
+{%endfor%}
 </table>
 </form>
 </div>
