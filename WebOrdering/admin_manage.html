@@ -419,6 +419,7 @@ explain  -->
 </form>
 </div>
 
+<!-- start: foodlist -->
  <div id='foodlist'  style="width: 80%;float:left;margin-left: -2em;">
     {%for category,url,name,foodprice,introduce in foods%}
     <div class='food'>
@@ -469,6 +470,45 @@ explain  -->
         })
     </script>
 </div>
+<!-- end: foodlist -->
+
+<div id='update-food'  style="width: 80%;float:left;margin-left: -2em;">
+	<form id='form1' method='post' enctype="multipart/form-data">
+		{% csrf_token %}
+		<table id='add-food'>
+		<tr>
+			<td>食物类别</td>
+			<td>
+				<select name='category'>
+					<option value='taocan'>超值套餐</option>
+					<option value='gaifan'>经典盖饭</option>
+					<option value='dianxin'>小吃点心</option>
+					<option value='yinpin'>饮品</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>食物名称</td>
+			<td><input name='foodname' type='text' /></td>
+		</tr>
+		<tr>
+			<td>食物价格</td>
+			<td><input type='text' name='foodprice'/></td>
+		</tr>
+		<tr>
+			<td>食物图片</td>
+			<td><input type='file' value='upload' name='pic'/></td>
+		</tr>
+		<tr>
+			<td>食物描述</td>
+			<td><textarea rows=10 name='introduce'></textarea></td>
+		</tr>
+		</table>
+		<input type='submit' value='提交'/>
+	</form>
+</div>
+
+
 
 <frameset rows="60,*" cols="*" frameborder="no" border="0" framespacing="0">
   <frame src="top.html" name="topFrame" scrolling="no">
