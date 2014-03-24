@@ -30,7 +30,6 @@
 			top.document.all.btFrame.cols = fcols[0]+',*';
 		}
 
-
 		function mv(selobj,moveout,itemnum)
 		{
 		   if(itemnum==curStyle) return false;
@@ -48,6 +47,19 @@
 		  }
 		  document.getElementById('item'+itemnum).className='itemsel';
 		}
+
+		function orderQuery()
+		{
+		    $('#order').show();
+		    $('#foodlist').hide();
+		}
+
+		function orderMgt()
+		{
+		    $('#foodlist').show();
+		    $('#order').hide();
+		}
+
 	</script>
 	<script language='javascript'>var curopenItem = '1';</script>
 	<script language="javascript" type="text/javascript" src="../../skin/js/frame/menu.js"></script>
@@ -144,14 +156,6 @@ a:link,a:visited {
 			width:100%;
 			height:30px;
 			background-color:#545652;
-		}
-		.nav-item{
-			float:left;
-			list-style:none;
-			padding-top:6px;
-			height:24px;
-			width:100px;
-			text-align:center;
 		}
 		a{
 			color:white;
@@ -324,10 +328,14 @@ explain  -->
           <ul class='sitemu'>
             <li>
               <div class='items'>
-                <div class='fllct'><a href='#' target='main'>订单查询</a></div>                
+                <div class='fllct' onClick='orderQuery()'><a href='#' target='main'>订单查询</a></div>                
               </div>
             </li>
-            <li><a href='#' target='main'>订单管理</a> </li>            
+            <li>
+              <div class='items'>
+			    <div onClick='orderMgt()'><a href='#' target='main'>订单管理</a></div>
+			  </div>
+			</li>            
           </ul>
         </dd>
       </dl>
@@ -406,6 +414,57 @@ explain  -->
 {%endfor%}
 </table>
 </form>
+</div>
+
+ <div id='foodlist'>
+    {%for category,url,name,foodprice,introduce in foods%}
+    <div class='food'>
+        <div class='food-img'>
+            <img src='../../{{url}}'>
+        </div>
+        <div class='food-detail'>
+            <table>
+                <tr>
+                    <td>食物名称</td>
+                    <td>{{name}}</td>
+                </tr>
+                <tr>
+                    <td>食物类别</td>
+                    <td class='category'>{{category}}</td>
+                </tr>
+                <tr>
+                    <td>食物价格</td>
+                    <td>{{foodprice}}</td>
+                </tr>
+                <tr>
+                    <td>食物描述</td>
+                    <td>{{introduce}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    {%endfor%}
+    <script>
+        $(function(){
+            var categories = $('.category')
+            var len = categories.length
+            for(var i = 0; i < len; i++){
+                var category=categories[i];
+                if(category.innerHTML=='taocan'){
+                    category.innerHTML='超值套餐'
+                }
+                if(category.innerHTML=='gaifan'){
+                    category.innerHTML='经典盖饭'
+                }
+                if(category.innerHTML=='dianxin'){
+                    category.innerHTML='小吃点心'
+                }
+                if(category.innerHTML=='yinpin'){
+                    category.innerHTML='饮品'
+                }
+            }
+        })
+    </script>
 </div>
 
 <frameset rows="60,*" cols="*" frameborder="no" border="0" framespacing="0">
