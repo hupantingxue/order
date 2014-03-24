@@ -51,13 +51,15 @@
 		function orderQuery()
 		{
 		    $('#order').show();
+		    $('#ordersearch').hide();
 		    $('#foodlist').hide();
 		    $('#foodupd').hide();
 		}
 
 		function orderMgt()
 		{
-		    $('#foodlist').show();
+		    $('#ordersearch').show();
+		    $('#foodlist').hide();
 		    $('#foodupd').hide();
 		    $('#order').hide();
 		}
@@ -65,6 +67,7 @@
 		function foodShow()
 		{
 		    $('#foodlist').show();
+		    $('#ordersearch').hide();
 		    $('#foodupd').hide();
 		    $('#order').hide();
 		}
@@ -72,6 +75,7 @@
 		function foodUpd()
 		{
 		    $('#foodupd').show();
+		    $('#ordersearch').hide();
 		    $('#foodlist').hide();
 		    $('#order').hide();
 		}
@@ -254,6 +258,7 @@ a:link,a:visited {
 <script>
 $(function(){
     $('#order').show();
+	$('#ordersearch').hide();
 	$('#foodlist').hide();
 	$('#foodupd').hide();
 
