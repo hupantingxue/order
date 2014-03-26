@@ -8,4 +8,4 @@ order
 hupantingxue
 
 <h3>License</h3>
-MIT
+GPL
